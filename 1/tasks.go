@@ -38,13 +38,13 @@ func Min(values []int64) int64 {
 	if len(values) == 0 {
 		return 0
 	}
-	var min int64 = math.MaxInt64
+	var minNumber int64 = math.MaxInt64
 	for _, v := range values {
-		if v < min {
-			min = v
+		if v < minNumber {
+			minNumber = v
 		}
 	}
-	return min
+	return minNumber
 }
 
 // Max возвращает максимум. Для пустого среза и nil возвращает 0 по условию задачи.
@@ -52,13 +52,13 @@ func Max(values []int64) int64 {
 	if len(values) == 0 {
 		return 0
 	}
-	var max int64 = math.MinInt64
+	var minNumber int64 = math.MinInt64
 	for _, v := range values {
-		if v > max {
-			max = v
+		if v > minNumber {
+			minNumber = v
 		}
 	}
-	return max
+	return minNumber
 }
 
 // Average возвращает среднее как float64. Для пустого среза и nil возвращает 0.
@@ -78,9 +78,9 @@ func Category(amount int64) string {
 	switch {
 	case amount < 0:
 		return "invalid"
-	case amount >= 0 && amount <= 9999:
+	case amount <= 9999:
 		return "small"
-	case amount >= 10000 && amount <= 49999:
+	case amount <= 49999:
 		return "regular"
 	default:
 		return "large"
