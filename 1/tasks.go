@@ -1,6 +1,8 @@
 package lesson2
 
-import "slices"
+import (
+	"math"
+)
 
 // FizzBuzz возвращает FizzBuzz, Fizz, Buzz или пустую строку для обычного числа.
 // Для n <= 0 возвращает invalid.
@@ -36,7 +38,13 @@ func Min(values []int64) int64 {
 	if len(values) == 0 {
 		return 0
 	}
-	return slices.Min(values)
+	var min int64 = math.MaxInt64
+	for _, v := range values {
+		if v < min {
+			min = v
+		}
+	}
+	return min
 }
 
 // Max возвращает максимум. Для пустого среза и nil возвращает 0 по условию задачи.
@@ -44,7 +52,13 @@ func Max(values []int64) int64 {
 	if len(values) == 0 {
 		return 0
 	}
-	return slices.Max(values)
+	var max int64 = math.MinInt64
+	for _, v := range values {
+		if v > max {
+			max = v
+		}
+	}
+	return max
 }
 
 // Average возвращает среднее как float64. Для пустого среза и nil возвращает 0.
